@@ -13,4 +13,8 @@ export class UserService {
   async list() {
     return this.userRepository.query('select * from sys_user')
   }
+
+  async getUserById(id: number) {
+    return this.userRepository.query(`select * from sys_user where id = ${id}`)
+  }
 }

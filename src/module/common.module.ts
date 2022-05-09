@@ -15,7 +15,7 @@ import { AjaxTransformInterceptor } from 'src/interceptors/ajax.transform.interc
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'nestts_admin',
+      database: 'data_v',
       entities: ['src/entitys/*.entity{.ts}'],
       synchronize: true
     })
