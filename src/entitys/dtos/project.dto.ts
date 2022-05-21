@@ -9,3 +9,10 @@ export class BiProjectGroupDto {
     @ApiProperty()
     count: number
 }
+export class UpdateGroupDto {
+    @ApiProperty()
+    id:string
+
+    @ApiProperty()
+    name: string
+}

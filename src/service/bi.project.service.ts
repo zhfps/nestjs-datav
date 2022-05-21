@@ -3,7 +3,7 @@ import { BiComponent } from 'src/entitys/bi.compoment.entity'
 import { BiProject } from 'src/entitys/bi.project.entity'
 import { BiProjectFilter } from 'src/entitys/bi.project.filter.entity'
 import { BiProjectGroup } from 'src/entitys/bi.project.group.entity'
-import { BiProjectGroupDto } from 'src/entitys/dtos/project.dto'
+import { BiProjectGroupDto, UpdateGroupDto } from 'src/entitys/dtos/project.dto'
 import { Repository } from 'typeorm'
 
 export class BiProjcetService {
@@ -42,7 +42,12 @@ export class BiProjcetService {
 
   async insertGroup(name: string):Promise<BiProjectGroup> {
     const group = this.bigroup.create({ name: name })
-    console.log(group)
     return this.bigroup.save(group)
+  }
+  async updateGroup(entity: UpdateGroupDto):Promise<BiProjectGroup> {
+    const group = await this.bigroup.findOne({ where: [{ id: entity.id }] })
+    group.name = entity.name
+    console.log(group)
+    return this.bigroup.save(entity)
   }
 }

@@ -3,16 +3,16 @@ import { Column, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
 export class AuditEntity {
         /* 创建时间 */
-        @CreateDateColumn({ name: 'createTime', comment: '创建时间' })
+        @CreateDateColumn({ name: 'createAt', comment: '创建时间' })
         // @ApiProperty()
         @ApiHideProperty()
-        createTime: Date
+        createAt: Date
 
         /* 更新时间 */
-        @UpdateDateColumn({ name: 'updateTime', comment: '更新时间' })
+        @UpdateDateColumn({ name: 'updateAt', comment: '更新时间' })
         // @ApiProperty()
         @ApiHideProperty()
-        updateTime: Date
+        updateAt: Date
 
         /* 创建人 */
         @Column({ name: 'createBy', comment: '创建人', length: '50', default: '' })

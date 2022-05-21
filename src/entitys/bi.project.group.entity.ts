@@ -1,15 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Entity, Generated, PrimaryColumn } from 'typeorm'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 import { AuditEntity } from './base.audit.entity'
 
 @Entity('bi_project_group')
 export class BiProjectGroup extends AuditEntity {
-    @PrimaryColumn()
-    @Generated('uuid')
+    @PrimaryGeneratedColumn('uuid')
     @ApiProperty()
     id:string
 
-    @PrimaryColumn()
+    @Column(
+      {
+        type: 'varchar',
+        length: '255'
+      }
+    )
     @ApiProperty()
     name: string
 }

@@ -4,7 +4,7 @@ import { BiComponent } from 'src/entitys/bi.compoment.entity'
 import { BiProject } from 'src/entitys/bi.project.entity'
 import { BiProjectFilter } from 'src/entitys/bi.project.filter.entity'
 import { BiProjectGroup } from 'src/entitys/bi.project.group.entity'
-import { BiProjectGroupDto } from 'src/entitys/dtos/project.dto'
+import { BiProjectGroupDto, UpdateGroupDto } from 'src/entitys/dtos/project.dto'
 import { BiProjcetService } from 'src/service/bi.project.service'
 
 @ApiTags('项目')
@@ -47,5 +47,12 @@ export class BiProjectController {
   createGroupList(@Body() data: { name: string; }): Promise<BiProjectGroup> {
     console.log(data)
     return this.projectService.insertGroup(data.name)
+  }
+
+  @Post('group/update')
+  @ApiResponse({ status: 200, type: BiProjectGroup })
+  updateGroupList(@Body() data: UpdateGroupDto): Promise<BiProjectGroup> {
+    console.log(data)
+    return this.projectService.updateGroup(data)
   }
 }

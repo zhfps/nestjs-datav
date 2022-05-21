@@ -2,6 +2,10 @@ import { Global, Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { APP_INTERCEPTOR } from '@nestjs/core'
 import { AjaxTransformInterceptor } from 'src/interceptors/ajax.transform.interceptor'
+import { BiComponent } from 'src/entitys/bi.compoment.entity'
+import { BiProject } from 'src/entitys/bi.project.entity'
+import { BiProjectFilter } from 'src/entitys/bi.project.filter.entity'
+import { BiProjectGroup } from 'src/entitys/bi.project.group.entity'
 /**
  * 公共模块
  */
@@ -16,8 +20,9 @@ import { AjaxTransformInterceptor } from 'src/interceptors/ajax.transform.interc
       username: 'root',
       password: 'root',
       database: 'data_v',
-      entities: ['src/entitys/*.entity{.ts}'],
-      synchronize: true
+      entities: [BiProject, BiComponent, BiProjectFilter, BiProjectGroup],
+      synchronize: false,
+      autoLoadEntities: true
     })
   ],
   providers: [
