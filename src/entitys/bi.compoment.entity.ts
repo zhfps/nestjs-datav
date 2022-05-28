@@ -9,10 +9,12 @@ export class BiComponent extends AuditEntity {
     @ApiProperty()
     id:string
 
+    @Column()
     @ApiProperty()
     projectId:string
 
     @ApiProperty()
+    @Column()
     parentId:string
 
     @PrimaryColumn()

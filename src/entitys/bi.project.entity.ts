@@ -9,16 +9,19 @@ export class BiProject extends AuditEntity {
     @ApiProperty()
     id:string
 
+    @Column()
     @ApiProperty()
     groupId:string
 
-    @PrimaryColumn()
+    @Column()
     @ApiProperty()
     name: string
 
+    @Column()
     @ApiProperty()
     share: string
 
+    @Column()
     @ApiProperty()
     thumbnail:string // 缩略图
 
